@@ -56,22 +56,22 @@ def review_crawl():
     cnt=1
     for origin_div in origin_divs:
 
-        finall_divs = origin_div.find_elements_by_css_selector('div.gws-localreviews__general-reviews-block > div')
-        for finall_div in finall_divs:
+        final_divs = origin_div.find_elements_by_css_selector('div.gws-localreviews__general-reviews-block > div')
+        for final_div in final_divs:
 
-            id_div = finall_div.find_element_by_class_name('TSUbDb')
+            id_div = final_divs.find_element_by_class_name('TSUbDb')
             user.append(id_div.text)
             print(id_div.text)
 
-            rating_span = finall_div.find_element_by_class_name('fTKmHE99XE4__star-s').get_attribute('aria-label')
+            rating_span = final_divs.find_element_by_class_name('fTKmHE99XE4__star-s').get_attribute('aria-label')
             rating.append(rating_span)
             print(rating_span[7:10])
 
-            date_span = finall_div.find_element_by_class_name('dehysf').text
+            date_span = final_divs.find_element_by_class_name('dehysf').text
             date.append(date_span)
             print(date_span)
 
-            review_div = finall_div.find_element_by_class_name('Jtu6Td')
+            review_div = final_divs.find_element_by_class_name('Jtu6Td')
             review_span = review_div.find_element_by_tag_name('span').text
             review.append(review_span)
             print(review_span)
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     define_crawl_size(20)
     review_crawl()
 
-# 긁어야하는 핵심 데이터 웹구조 설명,,더 좋게 바꾸고 싶은사람 찾고해서 바꾸셈.. 인새 쓰다
+# 긁어야하는 핵심 데이터 웹구조 설명,,더 좋게 바꾸고 싶은사람 찾고해서 바꾸셈.. 인생 쓰다
 #---------------------------------------------------------------------
 # [origin_divs]
 # 	div : 10개짜리 리뷰, 페이지 같은 개념
@@ -118,7 +118,7 @@ if __name__ == "__main__":
 # 	div
 # 	div  >> lv1_div
 #---------------------------------------------------------------------
-# [finall_div]
+# [final_div]
 # a
 # div.jxjCjc
 # 	div.TSUbDb =lv4s
